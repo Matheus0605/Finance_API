@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from models import Usuario
-from dependencies import pegar_sessao
-from main import bcrypt_context
+from app.models import Usuario
+from app.dependencies import pegar_sessao
+from app.main import bcrypt_context
 from schemas import LoginSchema
 
 

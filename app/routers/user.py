@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
-from models import Usuario
-from dependencies import pegar_sessao
-from main import bcrypt_context
-from schemas import UsuarioSchema
+from app.models import Usuario
+from app.dependencies import pegar_sessao
+from app.main import bcrypt_context
+from app.schemas import UsuarioSchema
 from sqlalchemy.orm import Session
 
 user_router = APIRouter(prefix="/user", tags=["user"])
