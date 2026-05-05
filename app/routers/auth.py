@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.models import Usuario
 from app.dependencies import pegar_sessao
 from app.main import bcrypt_context
-from schemas import LoginSchema
+from app.schemas import LoginSchema
 
 
 auth_router = APIRouter(prefix="/auth", tags=["auth"])
@@ -16,7 +16,7 @@ async def login(login_schema: LoginSchema, session: Session = Depends(pegar_sess
     if not usuario:
         raise HTTPException(status_code=400, detail="Email ou senha inválidos")
 
-    if not bcrypt_context.verify(login_schema.senha, usuario.senha):
+    if not bcrypt_context.verify(login_schema.password, usuario.password):
         raise HTTPException(status_code=400, detail="Email ou senha inválidos")
 
     return {"mensagem": "Login realizado com sucesso"}

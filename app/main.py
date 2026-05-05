@@ -15,10 +15,12 @@ bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # para rodar o codigo, executart no terrminal: uvicorn main:app --reload
 #---------------------------------------------
 
+from app.routers.auth import auth_router
 from app.routers.reports import reports_router
 from app.routers.transactions import transactions_router
 from app.routers.user import user_router
 
+app.include_router(auth_router)
 app.include_router(reports_router)
 app.include_router(transactions_router)
 app.include_router(user_router)

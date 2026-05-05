@@ -21,7 +21,7 @@ class Usuario(Base):
     id = Column("id", Integer, primary_key=True, autoincrement=True)
     name = Column("name", String)
     email = Column("email", String, nullable=False)
-    password_hash = Column("password_hash", String)
+    password = Column("password_hash", String)
 
     def __init__(self, name, email, password_hash):
 
