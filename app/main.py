@@ -1,7 +1,17 @@
-#Iniciar o FastAPI
-from fastapi import FastAPI
+from fastapi import FastAPI #Iniciar o FastAPI
+from passlib.context import CryptContext
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 
 app = FastAPI()
+
+bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # para rodar o codigo, executart no terrminal: uvicorn main:app --reload
 #---------------------------------------------
 
